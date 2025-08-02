@@ -1,5 +1,24 @@
-// Mobile Navigation Toggle
+// Enhanced Page Loading and Performance
 document.addEventListener('DOMContentLoaded', function() {
+    // Add loading class initially
+    document.body.classList.add('loading');
+    
+    // Performance optimization: Preload critical resources
+    preloadCriticalResources();
+    
+    // Page transition and loading effects
+    initializePageTransitions();
+    
+    // Intersection Observer for smooth animations
+    initializeAnimations();
+    
+    // Smooth page loading
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+        }, 100);
+    });
     // Video background handling
     const video = document.querySelector('.video-background video');
     if (video) {
@@ -245,4 +264,186 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 10);
 
     window.addEventListener('scroll', debouncedScrollHandler);
+
+    // FAQ Accordion Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
+            // Initially hide all answers
+            answer.style.display = 'none';
+            
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        if (otherAnswer) {
+                            otherAnswer.style.display = 'none';
+                        }
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.display = 'none';
+                } else {
+                    item.classList.add('active');
+                    answer.style.display = 'block';
+                }
+            });
+        }
+    });
+
+    // Helper Functions for Enhanced Performance
+
+    function preloadCriticalResources() {
+        // Preload fonts
+        const fontLinks = [
+            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap'
+        ];
+        
+        fontLinks.forEach(href => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'style';
+            link.href = href;
+            document.head.appendChild(link);
+        });
+
+        // Preload images if they exist
+        const criticalImages = [
+            'images/ryan.jpg'
+        ];
+        
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Prefetch internal page links
+        const internalLinks = document.querySelectorAll('a[href^="/"], a[href*="' + window.location.hostname + '"], a[href^="./"], a[href^="../"]');
+        internalLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                const href = this.href;
+                if (href && !this.dataset.prefetched) {
+                    const linkElement = document.createElement('link');
+                    linkElement.rel = 'prefetch';
+                    linkElement.href = href;
+                    document.head.appendChild(linkElement);
+                    this.dataset.prefetched = 'true';
+                }
+            });
+        });
+    }
+
+    function initializePageTransitions() {
+        // Add page transition class to main content
+        const mainElements = document.querySelectorAll('main, .hero, .section');
+        mainElements.forEach(el => {
+            el.classList.add('page-transition');
+        });
+
+        // Trigger animations after a short delay
+        setTimeout(() => {
+            mainElements.forEach(el => {
+                el.classList.add('animate-in');
+            });
+        }, 200);
+
+        // Handle internal link navigation with smooth transitions
+        const internalLinks = document.querySelectorAll('a[href^="./"], a[href^="../"], a[href*="' + window.location.hostname + '"]');
+        internalLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.href;
+                if (href && href !== window.location.href && !this.href.includes('#')) {
+                    e.preventDefault();
+                    
+                    // Show loading spinner
+                    showLoadingSpinner();
+                    
+                    // Fade out current page
+                    document.body.style.opacity = '0.8';
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 200);
+                }
+            });
+        });
+    }
+
+    function initializeAnimations() {
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements that should animate on scroll
+        const animateElements = document.querySelectorAll('.faq-item, .therapy-card, .case-study, .about-credentials-list, .ryan-image');
+        animateElements.forEach(el => {
+            el.classList.add('page-transition');
+            observer.observe(el);
+        });
+    }
+
+    function showLoadingSpinner() {
+        let spinner = document.querySelector('.loading-spinner');
+        if (!spinner) {
+            spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            spinner.innerHTML = '<div class="spinner"></div>';
+            document.body.appendChild(spinner);
+        }
+        spinner.classList.add('show');
+        
+        setTimeout(() => {
+            spinner.classList.remove('show');
+        }, 3000); // Auto-hide after 3 seconds
+    }
+
+    // Enhanced scroll performance
+    let ticking = false;
+    function updateOnScroll() {
+        // Add any scroll-based optimizations here
+        ticking = false;
+    }
+
+    function requestScrollUpdate() {
+        if (!ticking) {
+            requestAnimationFrame(updateOnScroll);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestScrollUpdate);
+
+    // Optimize video performance
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.addEventListener('loadstart', () => {
+            video.style.opacity = '0.5';
+        });
+        
+        video.addEventListener('canplay', () => {
+            video.style.opacity = '0.8';
+        });
+    });
 });
