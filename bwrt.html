@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Working Recursive Therapy (BWRT) - Ryan McConnell</title>
     <meta name="description" content="Revolutionary BWRT therapy in Qatar. Advanced subconscious therapy for trauma, anxiety, and emotional healing.">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline preload="auto" disablepictureinpicture>
-            <source src="images/wave.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Ryan McConnell</a></h1>
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;"><span class="ryan">R</span>yan McConnell</a></h1>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
@@ -52,7 +47,14 @@
     </header>
 
     <main>
-        <section class="hero" style="padding: 6rem 0 4rem; margin-top: 80px;">
+        <section class="hero" style="padding: 6rem 0 4rem;">
+            <!-- Video Background -->
+            <div class="video-background">
+                <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture>
+                    <source src="images/wave.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="container">
                 <div class="hero-content">
                     <h2 class="hero-title">Brain Working Recursive Therapy (BWRT)</h2>
@@ -104,12 +106,13 @@
                         <div class="bwrt-video-section">
                             <div class="video-embed">
                                 <iframe 
-                                    src="https://www.youtube.com/embed/ErnTFCVTJSg?rel=0&modestbranding=1" 
+                                    data-src="https://www.youtube.com/embed/ErnTFCVTJSg?rel=0&modestbranding=1" 
                                     title="BWRT Therapy Video" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                     allowfullscreen
-                                    loading="lazy">
+                                    loading="lazy"
+                                    style="background: url('https://img.youtube.com/vi/ErnTFCVTJSg/maxresdefault.jpg') center/cover;">
                                 </iframe>
                             </div>
                         </div>
@@ -185,9 +188,7 @@
                         <a href="mailto:ryanmcounselling@gmail.com" class="email-link">ryanmcounselling@gmail.com</a>
                     </div>
                     
-                    <div class="cta-section">
-                        <a href="mailto:ryanmcounselling@gmail.com?subject=BWRT Consultation Request" class="cta-button">Book your free BWRT consultation</a>
-                    </div>
+
                 </div>
             </div>
         </section>

@@ -23,6 +23,49 @@ html {
     scroll-behavior: smooth;
 }
 
+span.ryan {
+    color: rgb(91, 91, 222);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(91, 91, 222);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-style: solid;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Navbar brand hover animation */
+.nav-brand h1 {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.nav-brand h1 a {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-brand h1 a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(91, 91, 222);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+}
+
+.nav-brand h1 a:hover::after {
+    width: 100%;
+}
+
+.nav-brand h1 a:hover span.ryan {
+    text-decoration: none;
+}
+
 body {
     font-family: var(--font-primary);
     font-size: 16px;
@@ -33,6 +76,7 @@ body {
     transition: opacity 0.3s ease;
     overflow-x: hidden;
 }
+
 
 /* Loading State */
 body.loading {
@@ -46,8 +90,8 @@ body.loaded {
 /* Page Transition Effects */
 .page-transition {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .page-transition.animate-in {
@@ -67,11 +111,20 @@ body.loaded {
     will-change: transform, opacity;
 }
 
+/* Optimize Animation Performance */
+.therapy-card, .condition-item, .type-card, .faq-item,
+.nav-link, .cta-button, .ryan-image img {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
 /* Hardware Acceleration for Smooth Animations */
-.nav-menu, .dropdown-content, .video-background, .ryan-image img {
+.nav-menu, .dropdown-content, .video-background, .ryan-image img,
+.therapy-card, .condition-item, .type-card, .faq-item {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
+    will-change: transform;
 }
 
 /* Typography */
@@ -204,9 +257,11 @@ p {
     background: transparent;
     color: white;
     padding: 8rem 0 6rem;
-    margin-top: 80px;
+    padding-top: calc(8rem + 80px);
+    margin-top: 0;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -227,7 +282,9 @@ p {
     margin-bottom: 3rem;
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+
+    
 }
 
 /* CTA Button */
@@ -580,6 +637,7 @@ p {
     .hero {
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--tertiary-blue) 100%);
         backdrop-filter: none;
+        padding-top: calc(8rem + 80px);
     }
     
     .hero-title {
@@ -850,6 +908,7 @@ p {
 
     .hero {
         padding: 6rem 0 4rem;
+        padding-top: calc(6rem + 80px);
     }
 
     .hero-title {
@@ -920,14 +979,14 @@ p {
     .issues-column li {
         opacity: 0;
         transform: translateY(20px);
-        animation: fadeInUp 0.6s ease forwards;
+        animation: fadeInUp 0.3s ease forwards;
     }
 
-    .therapy-card:nth-child(1) { animation-delay: 0.1s; }
-    .therapy-card:nth-child(2) { animation-delay: 0.2s; }
-    .therapy-card:nth-child(3) { animation-delay: 0.3s; }
-    .therapy-card:nth-child(4) { animation-delay: 0.4s; }
-    .therapy-card:nth-child(5) { animation-delay: 0.5s; }
+    .therapy-card:nth-child(1) { animation-delay: 0.05s; }
+    .therapy-card:nth-child(2) { animation-delay: 0.1s; }
+    .therapy-card:nth-child(3) { animation-delay: 0.15s; }
+    .therapy-card:nth-child(4) { animation-delay: 0.2s; }
+    .therapy-card:nth-child(5) { animation-delay: 0.25s; }
 }
 
 @keyframes fadeInUp {
@@ -946,14 +1005,7 @@ p {
     left: -9999px;
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+/* Accessibility - Consolidated in bottom section */
 
 /* Focus states for accessibility */
 .nav-link:focus,
@@ -1580,6 +1632,7 @@ p {
     .hero {
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--tertiary-blue) 100%);
         backdrop-filter: none;
+        padding-top: calc(8rem + 80px);
     }
     
     .hero-title {
@@ -1953,17 +2006,12 @@ p {
 }
 
 /* Enhanced Performance and Smoothness */
-.section {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.section:hover {
-    transform: translateY(-2px);
-}
+/* Removed section hover effects for better performance on large elements */
 
 /* Smooth image loading */
 img {
     transition: opacity 0.3s ease;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
 img[data-loaded="false"] {
@@ -2000,13 +2048,14 @@ img[data-loaded="true"] {
     will-change: transform;
 }
 
-/* Reduce motion for accessibility */
+/* Comprehensive Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+        will-change: auto !important; /* Remove will-change for better performance */
     }
     
     .page-transition {
@@ -2015,5 +2064,13 @@ img[data-loaded="true"] {
     
     .loading-spinner {
         display: none !important;
+    }
+    
+    /* Disable hover effects for better performance */
+    .therapy-card:hover,
+    .condition-item:hover,
+    .type-card:hover,
+    .nav-link:hover {
+        transform: none !important;
     }
 }

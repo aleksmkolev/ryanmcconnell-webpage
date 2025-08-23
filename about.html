@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Ryan McConnell</title>
     <meta name="description" content="Learn about Ryan McConnell's qualifications, experience, and approach to psychology and mental health counselling.">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline preload="auto" disablepictureinpicture>
-            <source src="images/wave.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <header class="header">
+ </head>
+ <body>
+     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Ryan McConnell</a></h1>
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;"><span class="ryan">R</span>yan McConnell</a></h1>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
@@ -52,14 +47,21 @@
     </header>
 
     <main>
-        <section class="hero" style="padding: 6rem 0 4rem; margin-top: 80px;">
-            <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-title">About Ryan McConnell</h2>
-                    <p class="hero-subtitle">Professional qualifications, experience, and therapeutic philosophy</p>
-                </div>
-            </div>
-        </section>
+                 <section class="hero" style="padding: 6rem 0 4rem;">
+             <!-- Video Background -->
+             <div class="video-background">
+                 <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture>
+                     <source src="images/wave.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                 </video>
+             </div>
+             <div class="container">
+                 <div class="hero-content">
+                     <h2 class="hero-title">About Ryan McConnell</h2>
+                     <p class="hero-subtitle">Professional qualifications, experience, and therapeutic philosophy</p>
+                 </div>
+             </div>
+         </section>
 
         <section class="section">
             <div class="container">
@@ -167,9 +169,7 @@
                         <a href="mailto:ryanmcounselling@gmail.com" class="email-link">ryanmcounselling@gmail.com</a>
                     </div>
                     
-                    <div class="cta-section">
-                        <a href="mailto:ryanmcounselling@gmail.com?subject=Free Consultation Request" class="cta-button">Book your free consultation</a>
-                    </div>
+
                 </div>
             </div>
         </section>

@@ -108,19 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     let lastScrollTop = 0;
 
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+    // Consolidated scroll handler (moved to unified handler below)
 
     // Intersection Observer for animations
     const observerOptions = {
@@ -263,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Any additional scroll handling can go here
     }, 10);
 
-    window.addEventListener('scroll', debouncedScrollHandler);
+    // Consolidated scroll handler (moved to unified handler below)
 
     // FAQ Accordion Functionality
     const faqItems = document.querySelectorAll('.faq-item');
@@ -305,20 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Helper Functions for Enhanced Performance
 
     function preloadCriticalResources() {
-        // Preload fonts
-        const fontLinks = [
-            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap'
-        ];
-        
-        fontLinks.forEach(href => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = href;
-            document.head.appendChild(link);
-        });
-
-        // Preload images if they exist
+        // Preload critical images
         const criticalImages = [
             'images/ryan.jpg'
         ];
@@ -356,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mainElements.forEach(el => {
                 el.classList.add('animate-in');
             });
-        }, 200);
+        }, 50);
 
         // Handle internal link navigation with smooth transitions
         const internalLinks = document.querySelectorAll('a[href^="./"], a[href^="../"], a[href*="' + window.location.hostname + '"]');
@@ -416,24 +391,65 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             spinner.classList.remove('show');
-        }, 3000); // Auto-hide after 3 seconds
+        }, 1000); // Auto-hide after 1 second
     }
 
-    // Enhanced scroll performance
+    // UNIFIED SCROLL HANDLER - Consolidates all scroll functionality
     let ticking = false;
-    function updateOnScroll() {
-        // Add any scroll-based optimizations here
-        ticking = false;
-    }
-
-    function requestScrollUpdate() {
+    
+    function unifiedScrollHandler() {
         if (!ticking) {
-            requestAnimationFrame(updateOnScroll);
+            requestAnimationFrame(() => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // 1. Header hide/show functionality
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+                
+                // 2. Lazy load YouTube videos when they come into view
+                lazyLoadVideos();
+                
+                // 3. Any additional scroll handling from debounced handler
+                // (Currently empty but available for future use)
+                
+                ticking = false;
+            });
             ticking = true;
         }
     }
 
-    window.addEventListener('scroll', requestScrollUpdate);
+    // Lazy load YouTube videos for better performance
+    function lazyLoadVideos() {
+        const lazyVideos = document.querySelectorAll('iframe[data-src]');
+        lazyVideos.forEach(video => {
+            if (isElementInViewport(video) && video.dataset.src) {
+                video.src = video.dataset.src;
+                video.removeAttribute('data-src');
+            }
+        });
+    }
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Initial lazy load check
+    setTimeout(lazyLoadVideos, 100);
+
+    // SINGLE optimized scroll event listener
+    window.addEventListener('scroll', unifiedScrollHandler, { passive: true });
 
     // Optimize video performance
     const videos = document.querySelectorAll('video');
