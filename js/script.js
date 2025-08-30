@@ -371,12 +371,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, observerOptions);
 
-        // Observe elements that should animate on scroll
-        const animateElements = document.querySelectorAll('.faq-item, .therapy-card, .case-study, .about-credentials-list, .ryan-image');
-        animateElements.forEach(el => {
-            el.classList.add('page-transition');
-            observer.observe(el);
-        });
+            // Observe elements that should animate on scroll
+    const animateElements = document.querySelectorAll('.faq-item, .therapy-card, .case-study, .about-credentials-list, .ryan-image');
+    animateElements.forEach(el => {
+        el.classList.add('page-transition');
+        observer.observe(el);
+    });
+
+    // Match text container height to image height
+    function matchTextToImageHeight() {
+        const ryanImage = document.querySelector('.ryan-image img');
+        const textContainer = document.querySelector('.practice-text-container');
+        
+        if (ryanImage && textContainer) {
+            // Wait for image to load if not already loaded
+            if (ryanImage.complete) {
+                setTextContainerHeight();
+            } else {
+                ryanImage.addEventListener('load', setTextContainerHeight);
+            }
+            
+            function setTextContainerHeight() {
+                const imageHeight = ryanImage.offsetHeight;
+                textContainer.style.height = imageHeight + 'px';
+            }
+            
+            // Also update on window resize
+            window.addEventListener('resize', debounce(setTextContainerHeight, 250));
+        }
+    }
+    
+    // Initialize text-image height matching
+    matchTextToImageHeight();
     }
 
     function showLoadingSpinner() {
