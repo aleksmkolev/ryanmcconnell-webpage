@@ -7,59 +7,63 @@
     <meta name="description" content="Professional psychology and mental health counselling in Qatar. CBT, BWRT, and holistic therapy approaches for anxiety, depression, stress, and more.">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     
           <!-- Performance optimization hints -->
-      <link rel="preload" href="css/style.css" as="style">
-      <link rel="prefetch" href="about.html">
-      <link rel="prefetch" href="faq.html">
-      <link rel="prefetch" href="case-examples.html">
+      <link rel="preload" href="css/main.css" as="style">
+      <link rel="prefetch" href="pages/about.html">
+      <link rel="prefetch" href="pages/faq.html">
+      <link rel="prefetch" href="pages/case-examples.html">
   </head>
   <body>
-      <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <h1><a href="#" style="text-decoration: none; color: inherit;"><span class="ryan">R</span>yan McConnell</a></h1>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#practice" class="nav-link">The Practice</a>
-                <div class="nav-dropdown">
-                    <a href="#therapies" class="nav-link dropdown-toggle">Therapies ▼</a>
-                    <div class="dropdown-content">
-                        <a href="cbt.html">CBT</a>
-                        <a href="bwrt.html">BWRT</a>
-                        <a href="physical-fitness.html">Physical Fitness</a>
-                        <a href="diet.html">Diet</a>
-                        <a href="breathwork.html">Breathwork</a>
-                    </div>
-                </div>
-                <a href="#process" class="nav-link">Process</a>
-                <a href="case-examples.html" class="nav-link">Case Examples</a>
-                <a href="faq.html" class="nav-link">FAQ</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+      <!-- New Styled Navigation -->
+      <nav class="new-nav">
+          <ul>
+              <li><a href="#home"><img src="images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
+              <li><a href="#practice">The Practice</a></li>
+              <li class="has-dropdown">
+                  <a href="#therapies">Therapies</a>
+                  <ul>
+                      <li><a href="pages/cbt.html">CBT</a></li>
+                      <li><a href="pages/bwrt.html">BWRT</a></li>
+                      <li><a href="pages/physical-fitness.html">Physical Fitness</a></li>
+                      <li><a href="pages/diet.html">Diet</a></li>
+                      <li><a href="pages/breathwork.html">Breathwork</a></li>
+                  </ul>
+              </li>
+              <li><a href="#process">Process</a></li>
+              <li class="has-dropdown">
+                  <a href="pages/case-examples.html">Case Examples</a>
+                  <ul>
+                      <li><a href="pages/case-examples.html#case1">Case 1: Phobia</a></li>
+                      <li><a href="pages/case-examples.html#case2">Case 2: General Anxiety</a></li>
+                      <li><a href="pages/case-examples.html#case3">Case 3: PTSD & Self-Esteem</a></li>
+                      <li><a href="pages/case-examples.html#case4">Case 4: Alcoholism & Sexual Assault</a></li>
+                      <li><a href="pages/case-examples.html#case5">Case 5: Depression & Motivation</a></li>
+                      <li><a href="pages/case-examples.html#case6">Case 6: Military PTSD</a></li>
+                      <li><a href="pages/case-examples.html#case7">Case 7: Pornography Addiction</a></li>
+                      <li><a href="pages/case-examples.html#case8">Case 8: Marital Counselling</a></li>
+                  </ul>
+              </li>
+              <li><a href="pages/faq.html">FAQ</a></li>
+              <li><a href="pages/about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
 
-    <main>
+    <!-- Video Background - Outside hero section to extend behind navbar -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture>
+            <source src="images/wave.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <main style="margin-top: 0; padding-top: 0;">
         <section id="home" class="hero">
-            <!-- Video Background -->
-            <div class="video-background">
-                <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture>
-                    <source src="images/wave.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
             <div class="container">
                 <div class="hero-content">
                     <h2 class="hero-title">Professional Psychology & Mental Health Counselling</h2>
@@ -161,7 +165,7 @@
                         </div>
                         <h3>Breathwork</h3>
                         <p>The lungs are responsible for oxygen density and flow within the bloodstream. As a muscle itself the brain requires continuous oxygen. Control over one's breathing improves: alertness, energy levels, strength, cognitive function and happiness as well as providing a multitude of other health benefits. My therapeutic process involves the training of the lungs using simple but powerful techniques.</p>
-                        <a href="breathwork.html" class="learn-more-link">Learn more</a>
+                        <a href="pages/breathwork.html" class="learn-more-link">Learn more</a>
                     </div>
                     
                     <div class="therapy-card">
@@ -177,7 +181,7 @@
                         </div>
                         <h3>Brain Working Recursive Therapy (BWRT)</h3>
                         <p>This therapy involves altering the subconscious mind. It takes a negative memory (of any given emotion) and overlays a preferred response (usually a calm and happy memory) with a special technique. After the process is concluded the negative emotion associated with initial memory gets removed, leaving the client feeling apathetic towards the memory.</p>
-                        <a href="bwrt.html" class="learn-more-link">Learn more</a>
+                        <a href="pages/bwrt.html" class="learn-more-link">Learn more</a>
                     </div>
                     
                     <div class="therapy-card">
@@ -192,7 +196,7 @@
                         </div>
                         <h3>Cognitive Behavioural Therapy (CBT)</h3>
                         <p>Cognitive Behavioural Therapy is the most commonly used therapeutic process today. It is a predominantly conversation based therapy that explores the relationship between a person's thoughts, their emotions and their displayed behavior, whilst setting realistic goals. By addressing these issues we can create a better life for the client and motivate them to make changes.</p>
-                        <a href="cbt.html" class="learn-more-link">Learn more</a>
+                        <a href="pages/cbt.html" class="learn-more-link">Learn more</a>
                     </div>
                     
                     <div class="therapy-card">
@@ -206,7 +210,7 @@
                         </div>
                         <h3>Diet</h3>
                         <p>The symbiotic relationship between the body and the mind is undoubtedly real. The quality of our nutrition influences the quality of our bodies and thus all of our moods and our general behavior. If the client so chooses a portion of my therapeutic process involves placing the client on a customised diet that is mood boosting, obtainable and effective.</p>
-                        <a href="diet.html" class="learn-more-link">Learn more</a>
+                        <a href="pages/diet.html" class="learn-more-link">Learn more</a>
                     </div>
                     
                     <div class="therapy-card">
@@ -224,7 +228,7 @@
                         </div>
                         <h3>Physical Fitness</h3>
                         <p>In order to achieve a healthy mental state it is important to keep ones body in the best possible condition. When your body is in great working function it is producing more feel good chemicals that boost your happiness throughout the day. During the therapeutic process we can if the client so chooses focus on improving your physical fitness to your personally desired level.</p>
-                        <a href="physical-fitness.html" class="learn-more-link">Learn more</a>
+                        <a href="pages/physical-fitness.html" class="learn-more-link">Learn more</a>
                     </div>
                 </div>
             </div>

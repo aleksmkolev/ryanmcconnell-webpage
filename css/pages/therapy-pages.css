@@ -1,0 +1,523 @@
+/* Therapy Page Specific Styles */
+
+/* General Therapy Page Styles */
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.condition-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.condition-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px var(--shadow-light);
+}
+
+.condition-item h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+.condition-item p {
+    margin: 0;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Expectations Timeline */
+.expectations-timeline {
+    margin: 2rem 0;
+}
+
+.expectation-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+}
+
+.expectation-number {
+    background: var(--primary-blue);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.expectation-content h4 {
+    color: var(--secondary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.expectation-content p {
+    margin: 0;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(0, 129, 207, 0.05), rgba(0, 142, 155, 0.05));
+    border-left: 4px solid var(--primary-blue);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.highlight-box h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.highlight-box p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Video Section */
+.video-section {
+    margin: 3rem 0;
+}
+
+.video-placeholder {
+    background: var(--background-light);
+    border: 2px dashed var(--border-light);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.video-content h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.video-content p {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.video-content em {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* CBT Page Specific Styles */
+.cbt-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.cbt-conditions-list {
+    background-color: rgba(248, 249, 250, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cbt-conditions-list h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cbt-conditions-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.cbt-conditions-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.cbt-video-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: var(--background-light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px var(--shadow-light);
+    margin: 0 auto;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* BWRT Page Specific Styles */
+.bwrt-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.bwrt-conditions-list {
+    background-color: rgba(248, 249, 250, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bwrt-conditions-list h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.bwrt-conditions-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.bwrt-conditions-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.bwrt-video-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Physical Fitness Page Specific Styles */
+.fitness-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.fitness-benefits-list {
+    background-color: rgba(248, 249, 250, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.fitness-benefits-list h3 {
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.fitness-benefits-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.fitness-benefits-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.fitness-video-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Diet Page Specific Styles */
+.diet-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.diet-nutrition-list {
+    background-color: rgba(248, 249, 250, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.diet-nutrition-list h3 {
+    color: #008e9b;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.diet-nutrition-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.diet-nutrition-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.diet-video-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Breathwork Page Specific Styles */
+.breathwork-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.breathwork-benefits-list {
+    background-color: rgba(248, 249, 250, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.breathwork-benefits-list h3 {
+    color: #0089ba;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.breathwork-benefits-list ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.breathwork-benefits-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.breathwork-video-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-placeholder {
+    background-color: rgba(0, 129, 207, 0.1);
+    border: 2px dashed var(--primary-blue);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    height: 253px; /* 16:9 aspect ratio equivalent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-placeholder p {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Mobile Responsive for Therapy Pages */
+@media (max-width: 768px) {
+    .conditions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .condition-item {
+        padding: 1.5rem;
+    }
+
+    .expectation-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .expectation-content {
+        text-align: center;
+    }
+
+    .expectation-content p {
+        text-align: center;
+    }
+
+    .highlight-box {
+        padding: 1.5rem;
+    }
+
+    /* CBT mobile responsive */
+    .cbt-content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .cbt-video-section {
+        order: -1; /* Video on top for mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .cbt-conditions-list {
+        padding: 1.5rem;
+    }
+    
+    .video-embed {
+        max-width: 100%;
+    }
+
+    /* BWRT mobile responsive */
+    .bwrt-content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .bwrt-video-section {
+        order: -1; /* Video on top for mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .bwrt-conditions-list {
+        padding: 1.5rem;
+    }
+
+    /* Physical Fitness mobile responsive */
+    .fitness-content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .fitness-video-section {
+        order: -1; /* Video on top for mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .fitness-benefits-list {
+        padding: 1.5rem;
+    }
+
+    /* Diet mobile responsive */
+    .diet-content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .diet-video-section {
+        order: -1; /* Video on top for mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .diet-nutrition-list {
+        padding: 1.5rem;
+    }
+
+    /* Breathwork mobile responsive */
+    .breathwork-content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .breathwork-video-section {
+        order: -1; /* Video on top for mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .breathwork-benefits-list {
+        padding: 1.5rem;
+    }
+    
+    .video-placeholder {
+        height: 200px;
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .condition-item {
+        padding: 1.25rem;
+    }
+
+    .expectation-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .video-placeholder {
+        padding: 1.5rem;
+    }
+}

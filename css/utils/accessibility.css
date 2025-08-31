@@ -1,0 +1,38 @@
+/* Accessibility and Focus States */
+
+/* Focus states for accessibility */
+.nav-link:focus,
+.cta-button:focus,
+.email-link:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Hidden Secret Message Styling */
+.secret-message {
+    color: transparent;
+    user-select: none;
+    font-size: 0.1px;
+    position: absolute;
+    left: -9999px;
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav-toggle,
+    .cta-button {
+        display: none;
+    }
+    
+    .hero {
+        margin-top: 0;
+        background: white;
+        color: black;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+}

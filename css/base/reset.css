@@ -1,0 +1,62 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Force browser defaults to zero */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: #F9F8FD;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Loading State */
+body.loading {
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Page Transition Effects */
+.page-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-transition.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth Focus States */
+*:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    transition: outline 0.2s ease;
+}

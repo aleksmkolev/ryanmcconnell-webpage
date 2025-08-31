@@ -1,0 +1,179 @@
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .therapies-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .therapy-card {
+        padding: 2rem;
+    }
+
+    .issues-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Practice layout mobile */
+    .practice-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .practice-content-column .lead {
+        text-align: center;
+    }
+    
+    .ryan-image {
+        max-width: 210px;
+    }
+
+    /* Dropdown mobile */
+    .nav-dropdown {
+        position: static;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: var(--background-light);
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid var(--border-light);
+        margin-top: 0.5rem;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .nav-dropdown.active .dropdown-content {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .therapy-card {
+        padding: 1.5rem;
+    }
+    
+    .therapy-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Disable video background on mobile for performance */
+    .video-background {
+        display: none;
+    }
+
+    .section {
+        background-color: var(--background-white);
+        backdrop-filter: none;
+    }
+
+    .section-alt {
+        background-color: var(--background-light);
+        backdrop-filter: none;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--tertiary-blue) 100%);
+        backdrop-filter: none;
+        padding-top: calc(8rem + 80px);
+    }
+    
+    .hero-title {
+        text-shadow: none;
+    }
+    
+    .hero-subtitle {
+        text-shadow: none;
+    }
+}

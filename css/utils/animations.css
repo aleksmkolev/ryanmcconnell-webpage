@@ -1,0 +1,199 @@
+/* Animations and Performance */
+
+/* Preload Critical Elements */
+.hero, .section {
+    will-change: transform, opacity;
+}
+
+/* Optimize Animation Performance */
+.therapy-card, .condition-item, .type-card, .faq-item,
+.nav-link, .cta-button, .ryan-image img {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Hardware Acceleration for Smooth Animations */
+.nav-menu, .dropdown-content, .video-background, .ryan-image img,
+.therapy-card, .condition-item, .type-card, .faq-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-spinner.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 129, 207, 0.1);
+    border-top: 3px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Smooth Scrolling Animation */
+@media (prefers-reduced-motion: no-preference) {
+    .therapy-card,
+    .issues-column li {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.3s ease forwards;
+    }
+
+    .therapy-card:nth-child(1) { animation-delay: 0.05s; }
+    .therapy-card:nth-child(2) { animation-delay: 0.1s; }
+    .therapy-card:nth-child(3) { animation-delay: 0.15s; }
+    .therapy-card:nth-child(4) { animation-delay: 0.2s; }
+    .therapy-card:nth-child(5) { animation-delay: 0.25s; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in {
+  0% {
+    top: -50px;
+  }
+  40% {
+    top: 20px;
+  }
+  70% {
+    top: 10px;
+  }
+  100% {
+    top: 15px;
+  }
+}
+
+/* Enhanced scroll indicators */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.section.animate-in::before {
+    opacity: 0.3;
+}
+
+/* Performance optimizations */
+* {
+    will-change: auto;
+}
+
+.cta-button, .nav-link, .ryan-image img, .video-background video {
+    will-change: transform;
+}
+
+/* Smooth image loading */
+img {
+    transition: opacity 0.3s ease;
+    transform: translateZ(0);
+}
+
+img[data-loaded="false"] {
+    opacity: 0;
+}
+
+img[data-loaded="true"] {
+    opacity: 1;
+}
+
+/* Comprehensive Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        will-change: auto !important;
+    }
+    
+    .page-transition {
+        transition: none !important;
+    }
+    
+    .loading-spinner {
+        display: none !important;
+    }
+    
+    .therapy-card:hover,
+    .condition-item:hover,
+    .type-card:hover,
+    .nav-link:hover {
+        transform: none !important;
+    }
+    
+    .therapy-card:hover .therapy-icon {
+        transform: scale(1.05) !important;
+        filter: none !important;
+    }
+
+    .video-background {
+        display: none;
+    }
+    
+    .image-background img {
+        transform: scale(1.0);
+        filter: none;
+    }
+    
+    .ryan-image:hover img {
+        transform: none;
+    }
+    
+    .section {
+        background-color: var(--background-white);
+        backdrop-filter: none;
+    }
+
+    .section-alt {
+        background-color: var(--background-light);
+        backdrop-filter: none;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--tertiary-blue) 100%);
+        backdrop-filter: none;
+        padding-top: calc(8rem + 80px);
+    }
+    
+    .hero-title {
+        text-shadow: none;
+    }
+    
+    .hero-subtitle {
+        text-shadow: none;
+    }
+}

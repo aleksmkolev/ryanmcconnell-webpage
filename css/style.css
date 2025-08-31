@@ -67,11 +67,11 @@ span.ryan {
 }
 
 body {
-    font-family: var(--font-primary);
+    background: #F9F8FD;
+    font-family: 'Lexend Exa', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-dark);
-    background-color: var(--background-white);
     font-weight: 400;
     transition: opacity 0.3s ease;
     overflow-x: hidden;
@@ -1188,6 +1188,21 @@ p {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes slide-in {
+  0% {
+    top: -50px;
+  }
+  40% {
+    top: 20px;
+  }
+  70% {
+    top: 10px;
+  }
+  100% {
+    top: 15px;
+  }
 }
 
 /* Hidden Secret Message Styling */

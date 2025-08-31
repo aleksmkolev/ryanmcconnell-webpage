@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Navbar Example - Ryan McConnell</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/components/new-navigation.css">
+    <style>
+        body {
+            background: #F9F8FD;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0 1rem;
+            min-height: 100vh;
+            padding-top: 120px; /* Space for the floating navbar */
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #0081cf;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 129, 207, 0.08);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- New Styled Navigation -->
+    <nav class="new-nav">
+        <ul>
+            <li><a href="#home"><img src="images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
+            <li><a href="#practice">The Practice</a></li>
+            <li class="has-dropdown">
+                <a href="#therapies">Therapies</a>
+                <ul>
+                    <li><a href="pages/cbt.html">CBT</a></li>
+                    <li><a href="pages/bwrt.html">BWRT</a></li>
+                    <li><a href="pages/physical-fitness.html">Physical Fitness</a></li>
+                    <li><a href="pages/diet.html">Diet</a></li>
+                    <li><a href="pages/breathwork.html">Breathwork</a></li>
+                </ul>
+            </li>
+            <li><a href="#process">Process</a></li>
+            <li class="has-dropdown">
+                <a href="pages/case-examples.html">Case Examples</a>
+                <ul>
+                    <li><a href="pages/case-examples.html#case1">Case 1: Phobia</a></li>
+                    <li><a href="pages/case-examples.html#case2">Case 2: General Anxiety</a></li>
+                    <li><a href="pages/case-examples.html#case3">Case 3: PTSD & Self-Esteem</a></li>
+                    <li><a href="pages/case-examples.html#case4">Case 4: Alcoholism & Sexual Assault</a></li>
+                    <li><a href="pages/case-examples.html#case5">Case 5: Depression & Motivation</a></li>
+                    <li><a href="pages/case-examples.html#case6">Case 6: Military PTSD</a></li>
+                    <li><a href="pages/case-examples.html#case7">Case 7: Pornography Addiction</a></li>
+                    <li><a href="pages/case-examples.html#case8">Case 8: Marital Counselling</a></li>
+                </ul>
+            </li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Demo Content -->
+    <div class="content">
+        <h1>New Navigation Demo</h1>
+        <p>This is a demonstration of the new styled navigation adapted for your site.</p>
+        
+        <div class="demo-text">
+            <h2>Navigation Features:</h2>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li><strong>Sticky Position:</strong> Navbar stays visible when scrolling for easy access</li>
+                <li><strong>Floating Design:</strong> Centered floating navigation with rounded borders</li>
+                <li><strong>Backdrop Blur:</strong> Semi-transparent background with elegant blur effect</li>
+                <li><strong>Minimal Colors:</strong> Clean, elegant styling matching your original navbar</li>
+                <li><strong>Your Menu Items:</strong> Matches your current navigation structure</li>
+                <li><strong>Dual Dropdowns:</strong> Hover dropdowns for both Therapies and Case Examples</li>
+                <li><strong>Case Examples Menu:</strong> All 8 case studies with abbreviated descriptions</li>
+                <li><strong>Responsive:</strong> Adapts to mobile devices</li>
+                <li><strong>Professional Look:</strong> Clean, modern design that fits your brand</li>
+            </ul>
+            
+            <h3 style="color: var(--primary-blue); margin-top: 2rem;">Scroll Test:</h3>
+            <p style="color: var(--text-dark);">Scroll down this page to see the sticky navbar in action!</p>
+        </div>
+        
+        <!-- Extra content to test sticky behavior -->
+        <div style="margin-top: 3rem; padding: 2rem; background: var(--background-light); border-radius: 8px;">
+            <h2 style="color: var(--primary-blue);">More Content</h2>
+            <p style="color: var(--text-dark); line-height: 1.6; margin-bottom: 2rem;">
+                This section provides extra content to demonstrate the sticky navbar behavior. 
+                As you scroll down, notice how the navbar stays at the top of the viewport with a 
+                subtle blur effect and semi-transparent background.
+            </p>
+            
+            <div style="height: 300px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <h3 style="color: var(--text-dark);">Scroll Area 1</h3>
+            </div>
+            
+            <div style="height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <h3 style="color: white;">Scroll Area 2</h3>
+            </div>
+            
+            <div style="height: 300px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                <h3 style="color: white;">Scroll Area 3</h3>
+            </div>
+            
+            <div style="height: 300px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <h3 style="color: white;">Notice the navbar stays visible!</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

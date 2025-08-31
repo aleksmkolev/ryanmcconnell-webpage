@@ -1,0 +1,37 @@
+/* Contact Section */
+#contact .content {
+    text-align: center;
+}
+
+#contact .content p {
+    text-align: center;
+}
+
+.contact-info {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.contact-info p {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.email-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+}
+
+.email-link:hover {
+    color: var(--secondary-blue);
+}
+
+.cta-section {
+    text-align: center;
+    margin-top: 3rem;
+}

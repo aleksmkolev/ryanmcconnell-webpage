@@ -1,0 +1,338 @@
+/* Case Layout with Sidebar */
+.case-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.case-sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 0;
+    border-right: 1px solid #e9ecef;
+}
+
+.case-nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #6c757d;
+    border-bottom: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.case-nav-link:hover {
+    background: #e9ecef;
+    color: var(--primary-blue);
+}
+
+.case-nav-link.active {
+    background: var(--primary-blue);
+    color: white;
+    font-weight: 500;
+}
+
+.case-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.case-session {
+    display: none;
+}
+
+.case-session.active {
+    display: block;
+}
+
+.case-title {
+    color: #87CEEB;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Case Studies Styles */
+.case-study {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-light);
+}
+
+.case-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.case-title {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.case-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.case-meta span {
+    background: var(--background-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+}
+
+.case-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.case-section {
+    margin-bottom: 2rem;
+}
+
+.case-section h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.case-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.case-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.case-list li:last-child {
+    border-bottom: none;
+}
+
+.case-list li::before {
+    content: '→';
+    color: var(--primary-blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Timeline Styles */
+.progress-timeline {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.progress-timeline::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-blue), var(--tertiary-blue));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 75px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 55px;
+    height: 55px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.timeline-content {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.timeline-content p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Milestone Grid */
+.milestone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.milestone {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-blue);
+}
+
+.milestone h4 {
+    color: var(--secondary-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.milestone p {
+    margin: 0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+/* Success Factors */
+.success-factors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.factor-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px var(--shadow-light);
+    border: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.factor-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.factor-card p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsive for Case Studies */
+@media (max-width: 768px) {
+    .case-container {
+        flex-direction: column;
+        margin: 1rem;
+    }
+    
+    .case-sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .case-nav-link {
+        white-space: nowrap;
+        border-bottom: none;
+        border-right: 1px solid #e9ecef;
+    }
+    
+    .case-content {
+        padding: 1.5rem;
+    }
+
+    .case-study {
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .case-title {
+        font-size: 1.75rem;
+    }
+
+    .case-meta {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .timeline-item {
+        padding-left: 65px;
+    }
+
+    .timeline-marker {
+        width: 50px;
+        height: 50px;
+        font-size: 0.7rem;
+    }
+
+    .progress-timeline::before {
+        left: 24px;
+    }
+
+    .milestone-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .success-factors {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-study {
+        padding: 1.5rem 1rem;
+    }
+
+    .case-title {
+        font-size: 1.5rem;
+    }
+
+    .timeline-item {
+        padding-left: 60px;
+    }
+
+    .timeline-marker {
+        width: 45px;
+        height: 45px;
+        font-size: 0.65rem;
+    }
+
+    .progress-timeline::before {
+        left: 22px;
+    }
+
+    .factor-card {
+        padding: 1.5rem;
+    }
+}

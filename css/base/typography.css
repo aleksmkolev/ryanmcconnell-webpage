@@ -1,0 +1,51 @@
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.lead {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.emphasis {
+    font-weight: 500;
+    color: var(--primary-blue);
+}
+
+/* Brand Typography */
+span.ryan {
+    color: rgb(91, 91, 222);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(91, 91, 222);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-style: solid;
+    font-family: 'Times New Roman', Times, serif;
+}
