@@ -148,9 +148,14 @@
         padding: 0 1rem;
     }
 
-    /* Disable video background on mobile for performance */
+    /* Keep video background visible on mobile but optimize performance */
     .video-background {
-        display: none;
+        display: block;
+    }
+    
+    .video-background video {
+        opacity: 0.5;
+        filter: blur(1px);
     }
 
     .section {

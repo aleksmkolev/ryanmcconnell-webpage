@@ -12,18 +12,19 @@ body {
   position: sticky;
   top: 15px;
   display: block;
-  border: 2px solid var(--border-light);
-  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
   animation: slide-in 1s ease-out;
   z-index: 1000;
   max-width: 1200px;
   width: 100%;
   margin: 15px auto 0 auto;
   padding: 0 2rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
   transition: all 0.3s ease;
   box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Hide mobile elements on desktop */
@@ -59,14 +60,18 @@ body {
 .new-nav ul li a {
   color: var(--primary-blue);
   text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s;
+  text-transform: none;
+  transition: all 0.3s ease;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Dropdown indicator for items with submenus */
@@ -112,15 +117,14 @@ body {
   display: block;
   margin: 12px -12px;
   padding: 0;
-  background: #ECFEFF;
-  border: 2px solid #DFF2FE;
-  border-right: 2px solid #DBEAFE;
-  border-bottom: 2px solid #DBEAFE;
-  border-radius: 5px;
+  background: var(--background-white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
   transition: opacity 0.2s, visibility 0.2s;
   min-width: 220px;
   max-width: 280px;
   z-index: 1001;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .new-nav ul li ul li {
@@ -130,24 +134,27 @@ body {
 }
 
 .new-nav ul li ul li a {
-  color: var(--primary-blue);
+  color: var(--text-dark);
   text-transform: none;
-  font-size: 0.65rem;
-  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+  padding: 0.75rem 1.5rem;
   display: block;
-  line-height: 1.3;
+  line-height: 1.4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   gap: 0;
+  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Hover effects */
 .new-nav ul li:hover {
-  background: #ECFEFF;
-  border: 2px solid #DFF2FE;
-  border-right: 2px solid #DBEAFE;
-  border-bottom: 2px solid #DBEAFE;
+  background: var(--background-light);
+  border: 1px solid var(--border-light);
 }
 
 .new-nav ul li:hover > a {
@@ -157,7 +164,6 @@ body {
 .new-nav ul li:hover ul {
   visibility: visible;
   opacity: 1;
-  box-shadow: 0px 3px 5px 2px var(--shadow-light);
 }
 
 .new-nav ul li:hover ul li a {
@@ -195,8 +201,11 @@ body {
   }
   
   .new-nav ul li a {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     padding: 0.6rem 1rem;
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   .new-nav ul li ul {
@@ -205,8 +214,11 @@ body {
   }
   
   .new-nav ul li ul li a {
-    font-size: 0.6rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    font-family: var(--font-primary);
+    padding: 0.6rem 1.2rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -355,9 +367,13 @@ body {
     justify-content: space-between;
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
+    font-family: var(--font-primary);
     color: var(--text-dark);
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   .new-nav ul li:hover {
@@ -381,7 +397,7 @@ body {
   
   .new-nav ul li ul {
     position: static;
-    background: var(--background-light);
+    background: var(--background-white);
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -404,9 +420,18 @@ body {
   }
   
   .new-nav ul li ul li a {
-    padding: 0.5rem 1.5rem;
-    font-size: 0.8rem;
-    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .new-nav ul li ul li:hover {
+    background: var(--background-light);
   }
   
   .new-nav ul li ul li:hover a {

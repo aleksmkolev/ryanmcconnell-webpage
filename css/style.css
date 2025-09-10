@@ -359,9 +359,12 @@ p {
     100% { transform: rotate(360deg); }
 }
 
+
+
+
 /* Video Background - Hero Section Only */
 .video-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -385,8 +388,6 @@ p {
     will-change: opacity;
     pointer-events: none;
 }
-
-
 
 /* Image Background - About Page Hero */
 .image-background {
@@ -1740,6 +1741,9 @@ p {
 
 /* Mobile Responsive for Therapy Pages */
 @media (max-width: 768px) {
+    .video-background {
+        display: none;
+    }
     .nav-dropdown {
         position: static;
     }
@@ -1823,10 +1827,6 @@ p {
         padding: 1.5rem;
     }
 
-    /* Disable video background on mobile for performance */
-    .video-background {
-        display: none;
-    }
 
     .section {
         background-color: var(--background-white);

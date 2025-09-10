@@ -23,25 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const video = document.querySelector('.video-background video');
     if (video) {
         video.addEventListener('loadstart', function() {
-            console.log('Video started loading');
         });
         
         video.addEventListener('canplay', function() {
-            console.log('Video can start playing');
         });
         
         video.addEventListener('playing', function() {
-            console.log('Video is playing');
         });
         
         video.addEventListener('error', function(e) {
-            console.error('Video error:', e);
         });
         
         // Force play on interaction if autoplay is blocked
         document.addEventListener('click', function() {
             if (video.paused) {
-                video.play().catch(e => console.log('Video play failed:', e));
+                video.play().catch(e => {});
             }
         }, { once: true });
     }
@@ -88,11 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            // Don't interfere with links that have onclick handlers
+            if (this.onclick) {
+                return; // Let the onclick handler execute normally
+            }
+            
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                console.log('Scrolling to:', targetId);
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight - 20;
                 
@@ -148,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
     emailLinks.forEach(link => {
         link.addEventListener('click', function() {
             // You can add analytics tracking here if needed
-            console.log('Email consultation requested');
         });
     });
 
@@ -441,7 +442,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 2. Lazy load YouTube videos when they come into view
                 lazyLoadVideos();
                 
-                // 3. Any additional scroll handling from debounced handler
+                // 3. Hide video background when scrolling past hero section
+                const videoBackground = document.querySelector('.video-background');
+                const heroSection = document.querySelector('.hero');
+                if (videoBackground && heroSection) {
+                    const heroHeight = heroSection.offsetHeight;
+                    if (scrollTop > heroHeight) {
+                        videoBackground.classList.add('hidden');
+                    } else {
+                        videoBackground.classList.remove('hidden');
+                    }
+                }
+                
+                // 4. Any additional scroll handling from debounced handler
                 // (Currently empty but available for future use)
                 
                 ticking = false;
@@ -488,4 +501,50 @@ document.addEventListener('DOMContentLoaded', function() {
             video.style.opacity = '0.8';
         });
     });
+
+    // Scroll Arrow Functionality
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    if (scrollArrow) {
+        scrollArrow.addEventListener('click', function() {
+            const nextSection = document.querySelector('#practice');
+            if (nextSection) {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const targetPosition = nextSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    // Hide scroll arrow when scrolling past hero section
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            const hideScrollArrow = () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const heroHeight = heroSection.offsetHeight;
+                
+                if (scrollTop > heroHeight * 0.3) {
+                    scrollIndicator.style.opacity = '0';
+                    scrollIndicator.style.pointerEvents = 'none';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                    scrollIndicator.style.pointerEvents = 'auto';
+                }
+            };
+            
+            // Add to unified scroll handler
+            const originalUnifiedScrollHandler = unifiedScrollHandler;
+            window.removeEventListener('scroll', unifiedScrollHandler);
+            
+            window.addEventListener('scroll', function() {
+                originalUnifiedScrollHandler();
+                hideScrollArrow();
+            }, { passive: true });
+        }
+    }
 });
