@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.body.classList.remove('loading');
             document.body.classList.add('loaded');
+            // After load, set hero height variable for video clipping
+            updateHeroVideoHeight();
         }, 100);
     });
     // Video background handling
@@ -32,6 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         video.addEventListener('error', function(e) {
+        });
+        
+        // Smooth transition animation when video loop ends
+        video.addEventListener('ended', function() {
+            // Phase 1: Ease-out transition when video ends
+            video.classList.add('loop-ease-out');
+            
+            // Reset the video to start after ease-out completes
+            setTimeout(() => {
+                video.currentTime = 0;
+                
+                // Phase 2: Ease-in transition when video starts
+                video.classList.remove('loop-ease-out');
+                video.classList.add('loop-ease-in');
+                
+                // Remove ease-in class after transition completes
+                setTimeout(() => {
+                    video.classList.remove('loop-ease-in');
+                }, 600); // Match the ease-in duration
+                
+            }, 500); // Match the ease-out duration
         });
         
         // Force play on interaction if autoplay is blocked
@@ -90,6 +113,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
+    });
+
+    // Smooth scrolling for navigation links
+    function smoothScrollToSection(targetId) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerHeight = document.querySelector('.new-nav')?.offsetHeight || 0;
+            const targetPosition = targetElement.offsetTop - headerHeight - 20; // 20px extra padding
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Handle all navigation links (both desktop and mobile)
+    const allNavLinks = document.querySelectorAll('.nav-menu-desktop a, .nav-menu-mobile a, .mobile-brand');
+    
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle hash links (internal page navigation)
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (newNav.classList.contains('menu-open')) {
+                    newNav.classList.remove('menu-open');
+                    mobileMenuToggle.classList.remove('active');
+                }
+                
+                // Smooth scroll to section
+                smoothScrollToSection(href);
+            }
+        });
     });
 
     // Close mobile menu when clicking outside
@@ -421,6 +481,22 @@ document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('resize', debounce(setTextContainerHeight, 250));
         }
     }
+
+    // Set CSS variable to constrain video background to hero bottom
+    function updateHeroVideoHeight() {
+        const heroSection = document.querySelector('.hero');
+        const nav = document.querySelector('.new-nav');
+        if (!heroSection) return;
+        const navHeight = nav ? nav.offsetHeight : 0;
+        const heroHeight = heroSection.offsetHeight;
+        // Ensure video starts at top behind navbar and ends at hero bottom
+        const heightPx = Math.max(heroHeight, window.innerHeight) - 0;
+        document.documentElement.style.setProperty('--hero-height', heightPx + 'px');
+    }
+
+    window.addEventListener('resize', debounce(updateHeroVideoHeight, 150));
+    window.addEventListener('orientationchange', debounce(updateHeroVideoHeight, 150));
+    updateHeroVideoHeight();
     
     // Initialize text-image height matching
     matchTextToImageHeight();
@@ -483,15 +559,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Lazy load YouTube videos for better performance
-    function lazyLoadVideos() {
+    // Enhanced lazy load YouTube videos with IntersectionObserver
+    function initializeLazyLoading() {
         const lazyVideos = document.querySelectorAll('iframe[data-src]');
-        lazyVideos.forEach(video => {
-            if (isElementInViewport(video) && video.dataset.src) {
-                video.src = video.dataset.src;
-                video.removeAttribute('data-src');
-            }
-        });
+        
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const video = entry.target;
+                        if (video.dataset.src) {
+                            // Add a small delay to ensure smooth loading
+                            setTimeout(() => {
+                                video.src = video.dataset.src;
+                                video.removeAttribute('data-src');
+                                videoObserver.unobserve(video);
+                            }, 100);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px', // Start loading 50px before entering viewport
+                threshold: 0.1
+            });
+
+            lazyVideos.forEach(video => {
+                videoObserver.observe(video);
+            });
+        } else {
+            // Fallback for older browsers
+            lazyVideos.forEach(video => {
+                if (isElementInViewport(video) && video.dataset.src) {
+                    video.src = video.dataset.src;
+                    video.removeAttribute('data-src');
+                }
+            });
+        }
     }
 
     function isElementInViewport(el) {
@@ -504,8 +607,33 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
-    // Initial lazy load check
-    setTimeout(lazyLoadVideos, 100);
+    // Initialize lazy loading
+    initializeLazyLoading();
+
+    // Handle page navigation and video reloading
+    function handleVideoReload() {
+        const videos = document.querySelectorAll('iframe[src*="youtube.com"]');
+        videos.forEach(video => {
+            // Force reload the video by updating the src
+            const currentSrc = video.src;
+            video.src = '';
+            setTimeout(() => {
+                video.src = currentSrc;
+            }, 100);
+        });
+    }
+
+    // Reload videos when page becomes visible again (handles back/forward navigation)
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            setTimeout(handleVideoReload, 200);
+        }
+    });
+
+    // Also reload videos on page focus (additional safety)
+    window.addEventListener('focus', () => {
+        setTimeout(handleVideoReload, 200);
+    });
 
     // SINGLE optimized scroll event listener
     window.addEventListener('scroll', unifiedScrollHandler, { passive: true });

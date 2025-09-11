@@ -69,6 +69,7 @@ span.ryan {
 body {
     background: #F9F8FD;
     font-family: 'Lexend Exa', sans-serif;
+    
     font-size: 16px;
     line-height: 1.7;
     color: var(--text-dark);
