@@ -21,7 +21,56 @@
 <body>
     <!-- New Styled Navigation -->
     <nav class="new-nav">
-        <ul>
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu-desktop">
+            <li><a href="../index.html"><img src="../images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
+            <li><a href="../index.html#practice">The Practice</a></li>
+            <li class="has-dropdown">
+                <a href="../index.html#therapies">Therapies</a>
+                <ul>
+                    <li><a href="cbt.html">CBT</a></li>
+                    <li><a href="bwrt.html">BWRT</a></li>
+                    <li><a href="physical-fitness.html">Physical Fitness</a></li>
+                    <li><a href="diet.html">Diet</a></li>
+                    <li><a href="breathwork.html">Breathwork</a></li>
+                </ul>
+            </li>
+            <li><a href="../index.html#process">Process</a></li>
+            <li class="has-dropdown">
+                <a href="case-examples.html">Case Examples</a>
+                <ul>
+                    <li><a href="#case1">Case 1: Phobia</a></li>
+                    <li><a href="#case2">Case 2: General Anxiety</a></li>
+                    <li><a href="#case3">Case 3: PTSD & Self-Esteem</a></li>
+                    <li><a href="#case4">Case 4: Alcoholism & Sexual Assault</a></li>
+                    <li><a href="#case5">Case 5: Depression & Motivation</a></li>
+                    <li><a href="#case6">Case 6: Military PTSD</a></li>
+                    <li><a href="#case7">Case 7: Pornography Addiction</a></li>
+                    <li><a href="#case8">Case 8: Marital Counselling</a></li>
+                </ul>
+            </li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Header -->
+        <div class="mobile-nav-header">
+            <a href="../index.html" class="mobile-brand">
+                <img src="../images/logo.png" alt="Logo" class="nav-logo">
+                Ryan McConnell
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <ul class="nav-menu-mobile" id="nav-menu-mobile">
             <li><a href="../index.html"><img src="../images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
             <li><a href="../index.html#practice">The Practice</a></li>
             <li class="has-dropdown">

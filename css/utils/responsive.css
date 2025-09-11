@@ -35,8 +35,10 @@
     }
 
     .hero {
+        height: 100vh;
         min-height: 100vh;
         padding: 0;
+        padding-top: 70px; /* Account for fixed navbar */
     }
 
     .hero-title {
@@ -148,14 +150,14 @@
         padding: 0 1rem;
     }
 
-    /* Keep video background visible on mobile but optimize performance */
+    /* Enable video background on mobile */
     .video-background {
         display: block;
     }
     
     .video-background video {
-        opacity: 0.5;
-        filter: blur(1px);
+        opacity: 0.6;
+        filter: blur(0.5px);
     }
 
     .section {
@@ -171,7 +173,7 @@
     .hero {
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--tertiary-blue) 100%);
         backdrop-filter: none;
-        padding-top: calc(8rem + 80px);
+        padding-top: 70px; /* Account for fixed navbar */
     }
     
     .hero-title {

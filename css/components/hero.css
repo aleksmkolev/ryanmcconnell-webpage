@@ -159,6 +159,7 @@
         /* Ensure video works on mobile Safari */
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
+        display: block !important;
     }
     
     .video-background video {
@@ -172,12 +173,24 @@
         /* Ensure proper scaling on mobile */
         min-width: 100vw;
         min-height: 100vh;
+        display: block !important;
+    }
+    
+    .hero {
+        height: 100vh;
+        min-height: 100vh;
+        padding-top: 70px; /* Account for fixed navbar */
     }
     
     .hero-content {
         padding: 1.5rem 1rem;
         /* Ensure content is readable over video on mobile */
         text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.7);
+        height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .hero-title {
@@ -209,10 +222,22 @@
         /* Further optimize for small screens */
         filter: blur(0.2px);
         opacity: 0.5;
+        display: block !important;
+    }
+    
+    .hero {
+        height: 100vh;
+        min-height: 100vh;
+        padding-top: 70px; /* Account for fixed navbar */
     }
     
     .hero-content {
         padding: 1rem 0.75rem;
+        height: calc(100vh - 70px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .hero-title {

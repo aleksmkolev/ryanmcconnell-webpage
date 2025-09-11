@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan McConnell - Site Skeleton</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png">
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="new-nav">
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu-desktop">
+            <li><a href="#home"><img src="images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
+            <li><a href="#practice">The Practice</a></li>
+            <li class="has-dropdown">
+                <a href="#therapies">Therapies</a>
+                <ul>
+                    <li><a href="pages/cbt.html">CBT</a></li>
+                    <li><a href="pages/bwrt.html">BWRT</a></li>
+                    <li><a href="pages/physical-fitness.html">Physical Fitness</a></li>
+                    <li><a href="pages/diet.html">Diet</a></li>
+                    <li><a href="pages/breathwork.html">Breathwork</a></li>
+                </ul>
+            </li>
+            <li><a href="#process">Process</a></li>
+            <li class="has-dropdown">
+                <a href="pages/case-examples.html">Case Examples</a>
+                <ul>
+                    <li><a href="pages/case-examples.html#case1">Case 1</a></li>
+                    <li><a href="pages/case-examples.html#case2">Case 2</a></li>
+                    <li><a href="pages/case-examples.html#case3">Case 3</a></li>
+                </ul>
+            </li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Header -->
+        <div class="mobile-nav-header">
+            <a href="#home" class="mobile-brand">
+                <img src="images/logo.png" alt="Logo" class="nav-logo">
+                Ryan McConnell
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <ul class="nav-menu-mobile" id="nav-menu-mobile">
+            <li><a href="#home"><img src="images/logo.png" alt="Logo" class="nav-logo">Ryan McConnell</a></li>
+            <li><a href="#practice">The Practice</a></li>
+            <li class="has-dropdown">
+                <a href="#therapies">Therapies</a>
+                <ul>
+                    <li><a href="pages/cbt.html">CBT</a></li>
+                    <li><a href="pages/bwrt.html">BWRT</a></li>
+                    <li><a href="pages/physical-fitness.html">Physical Fitness</a></li>
+                    <li><a href="pages/diet.html">Diet</a></li>
+                    <li><a href="pages/breathwork.html">Breathwork</a></li>
+                </ul>
+            </li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="pages/case-examples.html">Case Examples</a></li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Optional background video wrapper -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture>
+            <source src="images/wave.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Page Title</h1>
+                    <p class="hero-subtitle">Short supporting subtitle text</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Practice</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="content">
+                    <!-- Content goes here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Therapies Section -->
+        <section id="therapies" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Therapeutic Approaches</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="therapies-grid">
+                    <!-- Cards or links -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Process</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="content">
+                    <!-- Steps/Timeline -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="content">
+                    <p class="lead">Get in touch to book a free consultation.</p>
+                    <a href="mailto:ryanmcounselling@gmail.com" class="email-link">ryanmcounselling@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-name">
+                <span class="name-text">Ryan McConnell</span>
+                <div class="name-underline"></div>
+            </div>
+            <p class="footer-copyright">&copy; 2025 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
