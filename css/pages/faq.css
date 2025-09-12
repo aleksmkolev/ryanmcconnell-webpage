@@ -50,13 +50,23 @@
 }
 
 .faq-answer {
-    padding: 0 2rem 2rem;
+    padding: 1.5rem 2rem 2rem;
     line-height: 1.7;
     color: var(--text-dark);
+    background-color: rgba(248, 249, 250, 0.5);
 }
 
 .faq-answer p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.faq-answer p:first-child {
+    margin-top: 0;
 }
 
 .faq-answer p:last-child {
@@ -87,6 +97,6 @@
     }
     
     .faq-answer {
-        padding: 0 1.5rem 1.5rem;
+        padding: 1.25rem 1.5rem 1.5rem;
     }
 }

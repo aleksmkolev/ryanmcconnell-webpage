@@ -41,25 +41,44 @@
 
 .learn-more-link {
     display: inline-block;
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
-    background: var(--primary-blue);
-    color: white;
+    margin-top: auto;
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    color: var(--primary-blue);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 25px;
     font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
-    width: 100%;
+    width: auto;
+    min-width: 120px;
     box-sizing: border-box;
-    border: 2px solid var(--primary-blue);
+    border: 1.5px solid var(--primary-blue);
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+}
+
+.learn-more-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.learn-more-link:hover::before {
+    left: 0;
 }
 
 .learn-more-link:hover {
-    background: white;
-    color: var(--primary-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-    border: 2px solid var(--primary-blue);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 129, 207, 0.25);
+    border-color: var(--primary-blue);
 }

@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Intersection Observer for smooth animations
     initializeAnimations();
     
+    // Optimize video loop to prevent stutter
+    optimizeVideoLoop();
+    
     // Smooth page loading
     window.addEventListener('load', function() {
         setTimeout(() => {
@@ -696,3 +699,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Video Loop Optimization Function
+function optimizeVideoLoop() {
+    const video = document.querySelector('.video-background video');
+    if (!video) return;
+    
+    // Ensure video is fully loaded before playing
+    video.addEventListener('canplaythrough', function() {
+        video.play().catch(e => console.log('Video autoplay prevented:', e));
+    });
+    
+    // Remove any existing loop transition classes to prevent stutter
+    video.addEventListener('ended', function() {
+        video.classList.remove('loop-ease-out', 'loop-ease-in');
+        video.currentTime = 0;
+        video.play();
+    });
+    
+    // Preload the video for seamless looping
+    video.load();
+}
